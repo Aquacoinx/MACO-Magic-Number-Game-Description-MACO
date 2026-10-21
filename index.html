@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,206 +6,45 @@
 <title>MACO Magic Number Game</title>
 
 <style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  background: #080d19;
-  color: #ffffff;
-  font-family: Arial, sans-serif;
-}
-
-header {
-  padding: 20px;
-  border-bottom: 1px solid #202a40;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-size: 21px;
-  font-weight: bold;
-  color: #55e6a5;
-}
-
-.badge {
-  font-size: 11px;
-  padding: 7px 10px;
-  border-radius: 20px;
-  background: #152a29;
-  color: #55e6a5;
-}
-
-main {
-  max-width: 600px;
-  margin: auto;
-  padding: 24px 16px;
-}
-
-.hero {
-  text-align: center;
-  padding: 28px 15px;
-}
-
-.hero h1 {
-  font-size: 34px;
-  margin-bottom: 12px;
-}
-
-.hero h1 span {
-  color: #55e6a5;
-}
-
-.hero p {
-  color: #a8b3c9;
-  line-height: 1.6;
-}
-
-.prize {
-  background: linear-gradient(135deg, #143a35, #14243c);
-  border: 1px solid #326b5b;
-  border-radius: 18px;
-  padding: 25px;
-  text-align: center;
-  margin: 20px 0;
-}
-
-.prize small {
-  color: #b9c9d8;
-}
-
-.amount {
-  font-size: 44px;
-  font-weight: bold;
-  color: #55e6a5;
-  margin: 10px 0;
-}
-
-.card {
-  background: #111a2b;
-  border: 1px solid #26334b;
-  border-radius: 16px;
-  padding: 22px;
-  margin: 20px 0;
-}
-
-h2 {
-  font-size: 20px;
-  margin-top: 0;
-}
-
-.rules {
-  padding-left: 20px;
-  color: #c1cadd;
-  line-height: 1.9;
-  font-size: 14px;
-}
-
-label {
-  display: block;
-  margin: 18px 0 8px;
-  font-size: 14px;
-  color: #dce5f5;
-}
-
-input, select {
-  width: 100%;
-  padding: 14px;
-  border: 1px solid #34435e;
-  border-radius: 10px;
-  background: #091120;
-  color: white;
-  font-size: 15px;
-}
-
-.numbers {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 9px;
-  margin-top: 12px;
-}
-
-.number {
-  padding: 14px 0;
-  text-align: center;
-  border: 1px solid #34435e;
-  background: #091120;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 17px;
-}
-
-.number.selected {
-  background: #55e6a5;
-  color: #07140f;
-  border-color: #55e6a5;
-  font-weight: bold;
-}
-
-button {
-  width: 100%;
-  border: 0;
-  border-radius: 10px;
-  padding: 15px;
-  margin-top: 20px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.primary {
-  background: #55e6a5;
-  color: #07140f;
-}
-
-.secondary {
-  background: #202c42;
-  color: white;
-}
-
-.notice {
-  padding: 13px;
-  background: #282416;
-  border: 1px solid #63532b;
-  border-radius: 10px;
-  color: #f3d991;
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-.status {
-  color: #a8b3c9;
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-footer {
-  text-align: center;
-  padding: 25px;
-  color: #8290a8;
-  font-size: 12px;
-}
+*{box-sizing:border-box}
+body{margin:0;background:#080d19;color:#fff;font-family:Arial,sans-serif}
+header{padding:20px;border-bottom:1px solid #202a40;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:21px;font-weight:bold;color:#55e6a5}
+.badge{font-size:11px;padding:7px 10px;border-radius:20px;background:#152a29;color:#55e6a5}
+main{max-width:600px;margin:auto;padding:24px 16px}
+.hero{text-align:center;padding:28px 15px}
+.hero h1{font-size:34px;margin-bottom:12px}
+.hero h1 span{color:#55e6a5}
+.hero p{color:#a8b3c9;line-height:1.6}
+.prize{background:linear-gradient(135deg,#143a35,#14243c);border:1px solid #326b5b;border-radius:18px;padding:25px;text-align:center;margin:20px 0}
+.prize small{color:#b9c9d8}
+.amount{font-size:44px;font-weight:bold;color:#55e6a5;margin:10px 0}
+.card{background:#111a2b;border:1px solid #26334b;border-radius:16px;padding:22px;margin:20px 0}
+h2{font-size:20px;margin-top:0}
+.rules{padding-left:20px;color:#c1cadd;line-height:1.9;font-size:14px}
+label{display:block;margin:18px 0 8px;font-size:14px;color:#dce5f5}
+input{width:100%;padding:14px;border:1px solid #34435e;border-radius:10px;background:#091120;color:white;font-size:15px}
+.numbers{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin-top:12px}
+.number{padding:14px 0;text-align:center;border:1px solid #34435e;background:#091120;border-radius:10px;cursor:pointer;font-size:17px}
+.number.selected{background:#55e6a5;color:#07140f;border-color:#55e6a5;font-weight:bold}
+button{width:100%;border:0;border-radius:10px;padding:15px;margin-top:20px;font-size:16px;font-weight:bold;cursor:pointer}
+.primary{background:#55e6a5;color:#07140f}
+.notice{padding:13px;background:#282416;border:1px solid #63532b;border-radius:10px;color:#f3d991;font-size:13px;line-height:1.6}
+.status{color:#a8b3c9;font-size:13px;line-height:1.6;overflow-wrap:anywhere}
+footer{text-align:center;padding:25px;color:#8290a8;font-size:12px}
 </style>
 </head>
 
 <body>
-
 <header>
   <div class="logo">$MACO MAGIC</div>
   <div class="badge">GAME 01</div>
 </header>
 
 <main>
-
   <section class="hero">
     <h1>Pick Your <span>Magic Number</span></h1>
-    <p>
-      Buy. Hold. Choose a number from 1 to 10.
-      Enter the game for a chance to win.
-    </p>
+    <p>Buy. Hold. Choose a number from 1 to 10. Enter the game for a chance to win.</p>
   </section>
 
   <section class="prize">
@@ -227,37 +66,22 @@ footer {
       <li>If nobody matches, the pot follows the published rollover rules.</li>
     </ol>
     <div class="notice">
-      Existing holdings alone do not qualify.
-      Only verified new purchases count.
-      Each qualifying transaction can be used once.
+      Existing holdings alone do not qualify. Only verified new purchases count. Each qualifying transaction can be used once.
     </div>
   </section>
 
   <section class="card">
     <h2>Enter the Game</h2>
-
     <div class="notice">
-      Preview mode: entries are not yet submitted or verified.
-      Do not treat this page as an active game.
+      The game is currently inactive. Submissions cannot qualify for a prize until transaction and holding verification is completed and the game is officially activated.
     </div>
 
     <form id="entryForm">
-
       <label for="wallet">Your EVM Wallet Address</label>
-      <input
-        id="wallet"
-        type="text"
-        placeholder="0x..."
-        required
-      >
+      <input id="wallet" type="text" placeholder="0x..." required>
 
       <label for="transaction">New $MACO Purchase Transaction Hash</label>
-      <input
-        id="transaction"
-        type="text"
-        placeholder="Paste your transaction hash"
-        required
-      >
+      <input id="transaction" type="text" placeholder="Paste your transaction hash" required>
 
       <label>Choose Your Number</label>
       <div class="numbers" id="numbers">
@@ -276,44 +100,26 @@ footer {
       <input type="hidden" id="chosenNumber">
 
       <label for="referral">Referral Code (Optional)</label>
-      <input
-        id="referral"
-        type="text"
-        placeholder="Enter referral code"
-      >
+      <input id="referral" type="text" placeholder="Enter referral code">
 
-      <button class="primary" type="submit">
-        Preview My Entry
-      </button>
-
-      <p id="message" class="status"></p>
-
+      <button class="primary" type="submit">Submit Entry</button>
+      <p id="message" class="status" aria-live="polite"></p>
     </form>
   </section>
 
   <section class="card">
     <h2>Referral Rewards</h2>
     <p class="status">
-      Refer players using your unique referral link.
-      When an eligible referred player wins, their referrer
-      receives 20% of the $5 prize ($1).
-    </p>
-    <p class="status">
-      Referral tracking, reward balances, and withdrawal
-      requests will be enabled after the backend is connected.
+      The proposed referral reward is 20% of the $5 prize ($1) when an eligible referred player wins. Referral tracking and payments are not yet active.
     </p>
   </section>
 
   <section class="card">
     <h2>Transparency First</h2>
     <p class="status">
-      Our goal is to publish verified entries, pot records,
-      winning numbers, winner-selection proofs, and payout
-      status. These features require backend verification
-      before the game can accept real entries.
+      Verified entries, pot records, winning numbers, winner-selection proofs and payout status should be published once the necessary backend features are implemented and tested.
     </p>
   </section>
-
 </main>
 
 <footer>
@@ -322,6 +128,12 @@ footer {
 </footer>
 
 <script>
+const SUPABASE_URL = "https://gseachvpegtvnplsvfwo.supabase.co";
+
+/* Replace this placeholder with your Supabase PUBLIC anon/publishable key.
+   Never put your service-role secret key in this file. */
+const SUPABASE_ANON_KEY = "PASTE_PUBLIC_ANON_KEY_HERE";
+
 let selectedNumber = null;
 
 document.querySelectorAll(".number").forEach(button => {
@@ -331,30 +143,62 @@ document.querySelectorAll(".number").forEach(button => {
     });
 
     button.classList.add("selected");
-    selectedNumber = button.dataset.number;
-
-    document.getElementById("chosenNumber").value =
-      selectedNumber;
+    selectedNumber = Number(button.dataset.number);
+    document.getElementById("chosenNumber").value = selectedNumber;
   });
 });
 
-document.getElementById("entryForm").addEventListener(
-  "submit",
-  event => {
-    event.preventDefault();
+document.getElementById("entryForm").addEventListener("submit", async event => {
+  event.preventDefault();
 
-    if (!selectedNumber) {
-      document.getElementById("message").textContent =
-        "Please choose a number from 1 to 10.";
+  const message = document.getElementById("message");
+
+  if (!selectedNumber) {
+    message.textContent = "Please choose a number from 1 to 10.";
+    return;
+  }
+
+  if (SUPABASE_ANON_KEY === "PASTE_PUBLIC_ANON_KEY_HERE") {
+    message.textContent = "Website connection is not configured yet.";
+    return;
+  }
+
+  message.textContent = "Sending submission...";
+
+  try {
+    const response = await fetch(
+      SUPABASE_URL + "/functions/v1/maco-magic-entry",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": SUPABASE_ANON_KEY,
+          "Authorization": "Bearer " + SUPABASE_ANON_KEY
+        },
+        body: JSON.stringify({
+          wallet: document.getElementById("wallet").value.trim(),
+          transactionHash: document.getElementById("transaction").value.trim(),
+          chosenNumber: selectedNumber,
+          referralCode: document.getElementById("referral").value.trim()
+        })
+      }
+    );
+
+    const result = await response.json();
+
+    if (!response.ok || !result.success) {
+      message.textContent = result.error || "Submission failed. Please try again.";
       return;
     }
 
-    document.getElementById("message").textContent =
-      "Preview only. The game backend is not connected, " +
-      "so your entry has NOT been submitted or verified.";
-  }
-);
-</script>
+    message.textContent =
+      "Submission received for review. Eligibility is NOT yet verified. Entry ID: " +
+      result.entryId;
 
+  } catch (error) {
+    message.textContent = "Could not connect. Please try again later.";
+  }
+});
+</script>
 </body>
 </html>

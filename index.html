@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MACO Magic Number Game</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #080d19;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  padding: 20px;
+  border-bottom: 1px solid #202a40;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 21px;
+  font-weight: bold;
+  color: #55e6a5;
+}
+
+.badge {
+  font-size: 11px;
+  padding: 7px 10px;
+  border-radius: 20px;
+  background: #152a29;
+  color: #55e6a5;
+}
+
+main {
+  max-width: 600px;
+  margin: auto;
+  padding: 24px 16px;
+}
+
+.hero {
+  text-align: center;
+  padding: 28px 15px;
+}
+
+.hero h1 {
+  font-size: 34px;
+  margin-bottom: 12px;
+}
+
+.hero h1 span {
+  color: #55e6a5;
+}
+
+.hero p {
+  color: #a8b3c9;
+  line-height: 1.6;
+}
+
+.prize {
+  background: linear-gradient(135deg, #143a35, #14243c);
+  border: 1px solid #326b5b;
+  border-radius: 18px;
+  padding: 25px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.prize small {
+  color: #b9c9d8;
+}
+
+.amount {
+  font-size: 44px;
+  font-weight: bold;
+  color: #55e6a5;
+  margin: 10px 0;
+}
+
+.card {
+  background: #111a2b;
+  border: 1px solid #26334b;
+  border-radius: 16px;
+  padding: 22px;
+  margin: 20px 0;
+}
+
+h2 {
+  font-size: 20px;
+  margin-top: 0;
+}
+
+.rules {
+  padding-left: 20px;
+  color: #c1cadd;
+  line-height: 1.9;
+  font-size: 14px;
+}
+
+label {
+  display: block;
+  margin: 18px 0 8px;
+  font-size: 14px;
+  color: #dce5f5;
+}
+
+input, select {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #34435e;
+  border-radius: 10px;
+  background: #091120;
+  color: white;
+  font-size: 15px;
+}
+
+.numbers {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 9px;
+  margin-top: 12px;
+}
+
+.number {
+  padding: 14px 0;
+  text-align: center;
+  border: 1px solid #34435e;
+  background: #091120;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.number.selected {
+  background: #55e6a5;
+  color: #07140f;
+  border-color: #55e6a5;
+  font-weight: bold;
+}
+
+button {
+  width: 100%;
+  border: 0;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.primary {
+  background: #55e6a5;
+  color: #07140f;
+}
+
+.secondary {
+  background: #202c42;
+  color: white;
+}
+
+.notice {
+  padding: 13px;
+  background: #282416;
+  border: 1px solid #63532b;
+  border-radius: 10px;
+  color: #f3d991;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.status {
+  color: #a8b3c9;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #8290a8;
+  font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">$MACO MAGIC</div>
+  <div class="badge">GAME 01</div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <h1>Pick Your <span>Magic Number</span></h1>
+    <p>
+      Buy. Hold. Choose a number from 1 to 10.
+      Enter the game for a chance to win.
+    </p>
+  </section>
+
+  <section class="prize">
+    <small>PRIZE PER COMPLETED POT</small>
+    <div class="amount">$5</div>
+    <p>11 verified entries per pot</p>
+  </section>
+
+  <section class="card">
+    <h2>How to Play</h2>
+    <ol class="rules">
+      <li>Make a new $MACO purchase worth at least $10.</li>
+      <li>Hold at least $10 worth of $MACO when eligibility is checked.</li>
+      <li>Choose one number between 1 and 10.</li>
+      <li>Submit your wallet and qualifying transaction.</li>
+      <li>Every 11 verified entries form one pot.</li>
+      <li>A winning number is randomly generated.</li>
+      <li>If multiple players match, one matching player is randomly selected.</li>
+      <li>If nobody matches, the pot follows the published rollover rules.</li>
+    </ol>
+    <div class="notice">
+      Existing holdings alone do not qualify.
+      Only verified new purchases count.
+      Each qualifying transaction can be used once.
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Enter the Game</h2>
+
+    <div class="notice">
+      Preview mode: entries are not yet submitted or verified.
+      Do not treat this page as an active game.
+    </div>
+
+    <form id="entryForm">
+
+      <label for="wallet">Your EVM Wallet Address</label>
+      <input
+        id="wallet"
+        type="text"
+        placeholder="0x..."
+        required
+      >
+
+      <label for="transaction">New $MACO Purchase Transaction Hash</label>
+      <input
+        id="transaction"
+        type="text"
+        placeholder="Paste your transaction hash"
+        required
+      >
+
+      <label>Choose Your Number</label>
+      <div class="numbers" id="numbers">
+        <div class="number" data-number="1">1</div>
+        <div class="number" data-number="2">2</div>
+        <div class="number" data-number="3">3</div>
+        <div class="number" data-number="4">4</div>
+        <div class="number" data-number="5">5</div>
+        <div class="number" data-number="6">6</div>
+        <div class="number" data-number="7">7</div>
+        <div class="number" data-number="8">8</div>
+        <div class="number" data-number="9">9</div>
+        <div class="number" data-number="10">10</div>
+      </div>
+
+      <input type="hidden" id="chosenNumber">
+
+      <label for="referral">Referral Code (Optional)</label>
+      <input
+        id="referral"
+        type="text"
+        placeholder="Enter referral code"
+      >
+
+      <button class="primary" type="submit">
+        Preview My Entry
+      </button>
+
+      <p id="message" class="status"></p>
+
+    </form>
+  </section>
+
+  <section class="card">
+    <h2>Referral Rewards</h2>
+    <p class="status">
+      Refer players using your unique referral link.
+      When an eligible referred player wins, their referrer
+      receives 20% of the $5 prize ($1).
+    </p>
+    <p class="status">
+      Referral tracking, reward balances, and withdrawal
+      requests will be enabled after the backend is connected.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>Transparency First</h2>
+    <p class="status">
+      Our goal is to publish verified entries, pot records,
+      winning numbers, winner-selection proofs, and payout
+      status. These features require backend verification
+      before the game can accept real entries.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  MACO MAGIC NUMBER GAME<br>
+  Learn. Play. Build. Hold.
+</footer>
+
+<script>
+let selectedNumber = null;
+
+document.querySelectorAll(".number").forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll(".number").forEach(item => {
+      item.classList.remove("selected");
+    });
+
+    button.classList.add("selected");
+    selectedNumber = button.dataset.number;
+
+    document.getElementById("chosenNumber").value =
+      selectedNumber;
+  });
+});
+
+document.getElementById("entryForm").addEventListener(
+  "submit",
+  event => {
+    event.preventDefault();
+
+    if (!selectedNumber) {
+      document.getElementById("message").textContent =
+        "Please choose a number from 1 to 10.";
+      return;
+    }
+
+    document.getElementById("message").textContent =
+      "Preview only. The game backend is not connected, " +
+      "so your entry has NOT been submitted or verified.";
+  }
+);
+</script>
+
+</body>
+</html>
